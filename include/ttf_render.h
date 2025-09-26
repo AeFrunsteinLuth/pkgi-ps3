@@ -1,38 +1,40 @@
-#ifndef TTF_RENDER_H
-#define TTF_RENDER_H
+#pragma once
 
+#ifdef TARGET_PS3
 #include <tiny3d.h>
+#endif
 
+#include <stdint.h>
 
-int TTFLoadFont(int set, char * path, void * from_memory, int size_from_memory);
-void TTFUnloadFont();
+// Font management
+int TTFLoadFont(int set, const char *path, const void *from_memory, int size_from_memory);
+void TTFUnloadFont(void);
 
-void TTF_to_Bitmap(u8 chr, u8 * bitmap, short *w, short *h, short *y_correction);
+// Convert character to bitmap
+void TTF_to_Bitmap(uint8_t chr, uint8_t *bitmap, short *w, short *h, short *y_correction);
 
-int Render_String_UTF8(u16 * bitmap, int w, int h, u8 *string, int sw, int sh);
+// Render UTF8 string to bitmap
+int Render_String_UTF8(uint16_t *bitmap, int w, int h, const uint8_t *string, int sw, int sh);
 
+// Initialize TTF texture table
+uint16_t *init_ttf_table(uint16_t *texture);
 
-// initialize and create textures slots for ttf
-u16 * init_ttf_table(u16 *texture);
-
-// do one time per frame to reset the character use flag
+// Reset character use flags per frame
 void reset_ttf_frame(void);
 
-// define window mode and size
+// Window modes
+typedef enum {
+    WIN_AUTO_LF = 1,
+    WIN_SKIP_LF = 2,
+    WIN_DOUBLE_LF = 4
+} TTFWindowMode;
 
-#define WIN_AUTO_LF 1
-#define WIN_SKIP_LF 2
-#define WIN_DOUBLE_LF  4
+// Set rendering window and mode
+void set_ttf_window(int x, int y, int width, int height, uint32_t mode);
 
-void set_ttf_window(int x, int y, int width, int height, u32 mode);
-
+// Global rendering variables
 extern float Y_ttf;
 extern float Z_ttf;
 
-// display UTF8 string int posx/posy position. With color 0 don't display and refresh/calculate the width. 
-// color is the character color and sw/sh the width/height of the characters
-
-int display_ttf_string(int posx, int posy, const char *string, u32 color, u32 bkcolor, int sw, int sh);
-
-
-#endif
+// Display UTF8 string
+int display_ttf_string(int posx, int posy, const char *string, uint32_t color, uint32_t bkcolor, int sw, int sh);
