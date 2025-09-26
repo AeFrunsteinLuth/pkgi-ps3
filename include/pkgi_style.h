@@ -1,11 +1,12 @@
 #pragma once
 
+#ifndef VITA_WIDTH
 #define VITA_WIDTH  848
 #define VITA_HEIGHT 512
+#endif
 
-#define PKGI_COLOR(R, G, B)		(((R)<<16) | ((G)<<8) | (B))
-#define RGBA_COLOR(C, ALPHA)	((C<<8) | ALPHA)
-
+#define PKGI_COLOR(R, G, B)   ((uint32_t)(((R) << 16) | ((G) << 8) | (B)))
+#define RGBA_COLOR(C, ALPHA)  ((uint32_t)((((C) << 8) | (ALPHA))))
 
 #define PKGI_UTF8_O "\xfa" // "\xe2\x97\x8b" // 0x25cb
 #define PKGI_UTF8_X "\xfb" // "\xe2\x95\xb3" // 0x2573
@@ -17,9 +18,9 @@
 #define PKGI_UTF8_PARTIAL   "\x09"//"\xe2\x97\x8b" // 0x25cb
 
 #define PKGI_UTF8_B  "B"
-#define PKGI_UTF8_KB "Kb" // "\xe3\x8e\x85" // 0x3385
-#define PKGI_UTF8_MB "Mb" // "\xe3\x8e\x86" // 0x3386
-#define PKGI_UTF8_GB "Gb" // "\xe3\x8e\x87" // 0x3387
+#define PKGI_UTF8_KB "kB" // "\xe3\x8e\x85" // 0x3385
+#define PKGI_UTF8_MB "MB" // "\xe3\x8e\x86" // 0x3386
+#define PKGI_UTF8_GB "GB" // "\xe3\x8e\x87" // 0x3387
 
 #define PKGI_UTF8_CLEAR "\xaf" // 0x00d7
 
@@ -66,6 +67,7 @@
 #define PKGI_MAIN_HMARGIN           20
 #define PKGI_MAIN_VMARGIN           20
 
+// Dialog settings
 #define PKGI_DIALOG_TEXT_Z  800
 #define PKGI_DIALOG_HMARGIN 100
 #define PKGI_DIALOG_VMARGIN 150
