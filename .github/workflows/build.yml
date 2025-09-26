@@ -23,17 +23,22 @@ jobs:
         path: mini18n
 
     - name: Set env vars
+      env:
+          SHA_NAME: ${{ github.sha }}
+          PS3DEV: ${{ github.workspace }}/ps3dev
+          PSL1GHT: ${{ github.workspace }}/ps3dev
+          
+    - name: Installation of Deps
       run: |
-        echo "sha_name=$(echo ${GITHUB_SHA} | cut -c1-8)" >> $GITHUB_ENV
-        echo "PS3DEV=${GITHUB_WORKSPACE}/ps3dev" >> $GITHUB_ENV
-        echo "PSL1GHT=${GITHUB_WORKSPACE}/ps3dev" >> $GITHUB_ENV
-        sudo apt install python2.7
+        sudo apt-get update
+        sudo apt-get install -y python2.7 curl tar make
 
       # using pre-compiled sdk
     - name: Download PSL1GHT Toolchain
       run: |
-        curl -sL https://github.com/bucanero/ps3toolchain/releases/download/ubuntu-latest-fad3b5fb/ps3dev-ubuntu-latest-2020-08-31.tar.gz | tar xvz -C ./
-        curl -sL https://github.com/ps3dev/PSL1GHT/raw/master/ppu/include/sysutil/sysutil.h -o ps3dev/ppu/include/sysutil/sysutil.h
+          curl -sL https://github.com/bucanero/ps3toolchain/releases/download/ubuntu-latest-fad3b5fb/ps3dev-ubuntu-latest-2020-08-31.tar.gz \
+          | tar -xzvf - -C ./
+          curl -sL https://github.com/ps3dev/PSL1GHT/raw/master/ppu/include/sysutil/sysutil.h -o ps3dev/ppu/include/sysutil/sysutil.h
 
     - name: Install ya2d
       working-directory: ya2d_ps3/libya2d
@@ -52,6 +57,6 @@ jobs:
     - name: Push package artifact
       uses: actions/upload-artifact@v4
       with:
-        name: pkgi-ps3-build_${{ env.sha_name }}
+        name: pkgi-ps3-build-${{ env.SHA_NAME[0:8] }}
         path: pkgi-ps3.pkg
         if-no-files-found: error
