@@ -35,7 +35,7 @@ msgstr "Download Erfolgreich"
 
 #: pkgi.c:122
 msgid "Task successfully queued (reboot to start)"
-msgstr "Aufgabe erfolgreich hinzugefgt (neustart erforderlich)"
+msgstr "Aufgabe erfolgreich hinzugefÂgt (neustart erforderlich)"
 
 #: pkgi.c:163
 msgid "GB"
@@ -46,7 +46,7 @@ msgid "MB"
 msgstr ""
 
 #: pkgi.c:171 pkgi.c:504 pkgi_download.c:253
-msgid "KB"
+msgid "kB"
 msgstr ""
 
 #: pkgi.c:175
@@ -56,7 +56,7 @@ msgstr ""
 #: pkgi.c:185
 #, c-format
 msgid "pkg requires %u %s free space, but only %u %s available"
-msgstr "pkg erfordert %u %s freien Speicherplatz, aber es sind nur %u %s verfgbar"
+msgstr "pkg erfordert %u %s freien Speicherplatz, aber es sind nur %u %s verfÂgbar"
 
 #: pkgi.c:225 pkgi_menu.c:109 pkgi_menu.c:121
 msgid "All"
@@ -104,7 +104,7 @@ msgstr "Unbekannt"
 
 #: pkgi.c:253
 msgid "Exit to XMB?"
-msgstr "Zurck zum XMB?"
+msgstr "ZurÂck zum XMB?"
 
 #: pkgi.c:436
 msgid "No items!"
@@ -128,7 +128,7 @@ msgstr "Aktualisieren"
 
 #: pkgi.c:563 pkgi.c:567
 msgid "Count"
-msgstr "Z„hler"
+msgstr "Zâ€hler"
 
 #: pkgi.c:575
 msgid "Free"
@@ -136,11 +136,11 @@ msgstr "Frei"
 
 #: pkgi.c:585
 msgid "Select"
-msgstr "Ausw„hlen"
+msgstr "Auswâ€hlen"
 
 #: pkgi.c:585
 msgid "Close"
-msgstr "Schlieáen"
+msgstr "SchlieÃ¡en"
 
 #: pkgi.c:585
 msgid "Cancel"
@@ -152,7 +152,7 @@ msgstr ""
 
 #: pkgi.c:589
 msgid "Menu"
-msgstr "Men"
+msgstr "MenÂ"
 
 #: pkgi.c:589
 msgid "Details"
@@ -176,11 +176,11 @@ msgstr "Liste konnte nicht heruntergeladen werden von"
 
 #: pkgi_db.c:159
 msgid "list is too large... check for newer pkgi version!"
-msgstr "Liste ist zu groá... nach neueren pkgi-Versionen suchen!"
+msgstr "Liste ist zu groÃ¡... nach neueren pkgi-Versionen suchen!"
 
 #: pkgi_db.c:187
 msgid "list is empty... check the DB server"
-msgstr "Liste ist leer... berprfen Sie den DB-Server"
+msgstr "Liste ist leer... ÂberprÂfen Sie den DB-Server"
 
 #: pkgi_db.c:390
 msgid "ERROR: pkgi.txt file(s) missing or bad config.txt file"
@@ -205,25 +205,25 @@ msgstr "Update(s) geladen"
 #: pkgi_dialog.c:319
 #, c-format
 msgid "press %s to cancel"
-msgstr "drcke %s um abzubrechen"
+msgstr "drÂcke %s um abzubrechen"
 
 #: pkgi_dialog.c:333
 #, c-format
 msgid "press %s to close - %s to scan updates"
-msgstr "drcke %s zum Schlieáen - %s zum Scannen von Updates"
+msgstr "drÂcke %s zum SchlieÃ¡en - %s zum Scannen von Updates"
 
 #: pkgi_dialog.c:365
 msgid "Enter"
-msgstr "Best„tigen"
+msgstr "Bestâ€tigen"
 
 #: pkgi_dialog.c:365
 msgid "Back"
-msgstr "Zurck"
+msgstr "ZurÂck"
 
 #: pkgi_dialog.c:367
 #, c-format
 msgid "press %s to close"
-msgstr "drcke %s zum schliessen"
+msgstr "drÂcke %s zum schliessen"
 
 #: pkgi_download.c:183
 msgid "Install"
@@ -243,11 +243,11 @@ msgstr "HTTP-Anfrage fehlgeschlagen"
 
 #: pkgi_download.c:322 pkgi_download.c:404
 msgid "HTTP response has unknown length"
-msgstr "HTTP-Antwort hat unbekannte L„nge"
+msgstr "HTTP-Antwort hat unbekannte Lâ€nge"
 
 #: pkgi_download.c:331
 msgid "Not enough free space on HDD"
-msgstr "Nicht gengend freier Speicherplatz auf der Festplatte"
+msgstr "Nicht genÂgend freier Speicherplatz auf der Festplatte"
 
 #: pkgi_download.c:340
 msgid "Could not create task directory on HDD."
@@ -291,7 +291,7 @@ msgstr "Datei kann nicht fortgesetzt werden"
 
 #: pkgi_download.c:562
 msgid "pkg integrity failed, try downloading again"
-msgstr "pkg-Integrit„t fehlgeschlagen, versuchen Sie den Download erneut"
+msgstr "pkg-Integritâ€t fehlgeschlagen, versuchen Sie den Download erneut"
 
 #: pkgi_download.c:573
 msgid "Creating RAP file"
@@ -311,7 +311,7 @@ msgstr "Fortsetzen..."
 
 #: pkgi_download.c:652
 msgid "Adding background task..."
-msgstr "Hintergrundaufgabe wird hinzugefgt..."
+msgstr "Hintergrundaufgabe wird hinzugefÂgt..."
 
 #: pkgi_download.c:675
 msgid "Downloading icon"
@@ -343,7 +343,7 @@ msgstr ""
 
 #: pkgi_menu.c:107
 msgid "Size"
-msgstr "Gr”áe"
+msgstr "Grâ€Ã¡e"
 
 #: pkgi_menu.c:108
 msgid "Content:"
