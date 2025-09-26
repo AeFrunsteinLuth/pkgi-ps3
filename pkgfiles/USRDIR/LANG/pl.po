@@ -39,19 +39,19 @@ msgstr "Zadanie umieszczone w kolejce. (Zrestartuj, aby rozpoczac)"
 
 #: pkgi.c:163
 msgid "GB"
-msgstr "GB"
+msgstr ""
 
 #: pkgi.c:167 pkgi_download.c:249
 msgid "MB"
-msgstr "MB"
+msgstr ""
 
 #: pkgi.c:171 pkgi.c:504 pkgi_download.c:253
-msgid "KB"
-msgstr "KB"
+msgid "kB"
+msgstr ""
 
 #: pkgi.c:175
 msgid "B"
-msgstr "B"
+msgstr ""
 
 #: pkgi.c:185
 #, c-format
