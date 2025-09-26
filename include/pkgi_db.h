@@ -23,6 +23,9 @@ typedef enum {
     SortDescending,
 } DbSortOrder;
 
+// Alias for bitfield of DbFilter values
+typedef uint32_t DbFilterFlags;
+
 typedef enum {
     DbFilterRegionASA = 0x01,
     DbFilterRegionEUR = 0x02,
@@ -86,12 +89,12 @@ typedef struct Config {
     DbSort sort;
     DbSortOrder order;
     uint8_t content;
-    uint32_t filter;
+    uint32_t filter; // DbFilterFlags
     uint8_t version_check;
     uint8_t dl_mode_background;
     uint8_t music;
     uint8_t allow_refresh;
-    char language[3];
+    char language[4]; // ensure null termination
 } Config;
 
 
