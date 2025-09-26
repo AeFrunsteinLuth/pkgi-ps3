@@ -2,7 +2,6 @@
 #define PDB_DATA_H
 
 #include <stdint.h>
-#include <pdb_data.h> [
 
 // Data sizes
 #define D0TOP_DATA_SIZE       177
