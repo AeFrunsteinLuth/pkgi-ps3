@@ -33,7 +33,7 @@
 #define PKGI_INSTALL_FOLDER "/dev_hdd0/vsh/game_pkg"
 
 
-#define PKGI_COUNTOF(arr) (sizeof(arr)/sizeof(0[arr]))
+#define PKGI_COUNTOF(arr) (sizeof(arr)/sizeof((arr)[0]))
 
 #ifdef PKGI_ENABLE_LOGGING
 #include <dbglogger.h>
@@ -80,8 +80,8 @@ int pkgi_install(const char* titleid);
 
 uint32_t pkgi_time_msec();
 
-typedef void pkgi_thread_entry(void);
-void pkgi_start_thread(const char* name, pkgi_thread_entry* start);
+typedef void (*pkgi_thread_entry)(void);
+void pkgi_start_thread(const char* name, pkgi_thread_entry start);
 void pkgi_thread_exit(void);
 void pkgi_sleep(uint32_t msec);
 
@@ -127,11 +127,20 @@ int pkgi_write(void* f, const void* buffer, uint32_t size);
 // UI stuff
 typedef void* pkgi_texture;
 
-#define pkgi_load_image_buffer(name, type) \
-    ({ extern const uint8_t name##_##type []; \
-       extern const uint32_t name##_##type##_size; \
-       pkgi_load_##type##_raw((void*) name##_##type , name##_##type##_size); \
-    })
+// Inline loaders – placeholders for specific resources
+static inline pkgi_texture pkgi_load_png_buffer(void)
+{
+    extern const uint8_t iconfile_png[];
+    extern const uint32_t iconfile_png_size;
+    return pkgi_load_png_raw((void*)iconfile_png, iconfile_png_size);
+}
+
+static inline pkgi_texture pkgi_load_jpg_buffer(void)
+{
+    extern const uint8_t background_jpg[];
+    extern const uint32_t background_jpg_size;
+    return pkgi_load_jpg_raw((void*)background_jpg, background_jpg_size);
+}
 
 void pkgi_start_music(void);
 void pkgi_stop_music(void);
