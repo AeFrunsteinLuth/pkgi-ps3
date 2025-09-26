@@ -3,6 +3,8 @@
 #---------------------------------------------------------------------------------
 .SUFFIXES:
 #---------------------------------------------------------------------------------
+PSL1GHT ?= /usr/local/ps3dev/psl1ght
+
 ifeq ($(strip $(PSL1GHT)),)
 $(error "Please set PSL1GHT in your environment. export PSL1GHT=<path>")
 endif
@@ -114,6 +116,9 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES), -I$(CURDIR)/$(dir)) \
 					-I$(PORTLIBS)/include/libxml2 \
 					-I$(CURDIR)/$(BUILD) -I$(PORTLIBS)/include
 
+EXTRA_INCLUDES ?=
+export INCLUDE += $(EXTRA_INCLUDES)
+
 #---------------------------------------------------------------------------------
 # build a list of library paths
 #---------------------------------------------------------------------------------
@@ -150,6 +155,9 @@ npdrm: $(BUILD)
 
 quickpkg:
 	$(VERB) if [ -n "$(PKGFILES)" -a -d "$(PKGFILES)" ]; then cp -rf $(PKGFILES)/* $(BUILDDIR)/pkg/; fi
+	$(info Copying pkg assets...)
+	$(VERB) cp $(ICON0) $(BUILDDIR)/pkg/ICON0.PNG
+	$(VERB) cp $(SFOXML) $(BUILDDIR)/pkg/sfo.xml
 	$(VERB) $(PKG) --contentid $(CONTENTID) $(BUILDDIR)/pkg/ $(TARGET).pkg >> /dev/null
 	$(VERB) cp $(TARGET).pkg $(TARGET).gnpdrm.pkg
 	$(VERB) $(PACKAGE_FINALIZE) $(TARGET).gnpdrm.pkg
