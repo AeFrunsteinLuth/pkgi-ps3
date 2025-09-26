@@ -13,28 +13,29 @@ static inline uint8_t byte32(uint32_t x, int n)
     return (uint8_t)(x >> (8 * n));
 }
 
-static inline uint32_t min32(uint32_t a, uint32_t b)
+static inline uint32_t min32(const uint32_t a, const uint32_t b)
 {
     return a < b ? a : b;
 }
 
-static inline uint64_t min64(uint64_t a, uint64_t b)
+static inline uint64_t min64(const uint64_t a, const uint64_t b)
 {
     return a < b ? a : b;
 }
 
-static inline uint32_t max32(uint32_t a, uint32_t b)
+static inline uint32_t max32(const uint32_t a, const uint32_t b)
 {
     return a > b ? a : b;
 }
 
-static inline uint64_t max64(uint64_t a, uint64_t b)
+static inline uint64_t max64(const uint64_t a, const uint64_t b)
 {
     return a > b ? a : b;
 }
 
 static inline uint32_t ror32(uint32_t x, int n)
 {
+    n &= 31;
     return (x >> n) | (x << (32 - n));
 }
 
